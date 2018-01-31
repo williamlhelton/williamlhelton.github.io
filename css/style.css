@@ -1,3 +1,4 @@
+/* Global */
 *{
     padding:0;
     margin:0;
@@ -7,12 +8,16 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size:15px;
     line-height:1.5;
-    background-image:url("../img/bulb.jpg");
+    opacity:0.85;
+    background: url("../img/bulb.jpg") no-repeat center center fixed;
     background-size:cover;
-    opacity:0.70;
 }
 
-/* Global */
+#wrapper-tint{
+    background-color: black;
+    opacity:0.95;
+}
+
 .container{
     width:80%;
     margin:auto;
@@ -52,8 +57,35 @@ header{
 }
 
 #navbar a:hover{
-    color:#ccc;
     font-weight:bold;
+}
+
+/* Blurbs */
+#blurb-container{
+    padding:10px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.blurb{
+    margin:20px;
+}
+
+.blurb h2{
+    margin-top:15px;
+    border-radius:25px 25px 0 0;
+    background:darkblue;
+    color:white;
+    text-align:center;
+}
+
+.blurb p{
+    background:white;
+    border-radius:0 0 25px 25px;
+    padding:18px;
+    color:black;
+    padding-top:20px;
+    font-size: 20px;
 }
 
 /* Footer */
@@ -62,4 +94,15 @@ footer{
     background-color:darkblue;
     color:white;
     text-align:center;
+}
+
+/* Media Query */
+@media(max-width: 960px){
+    .container{
+        width:92%;
+    }
+
+    #blurb-container{
+        grid-template-columns: 1fr;
+    }
 }
