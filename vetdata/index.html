@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/taglogo.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Home - FakeData</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#"><button>Home</button></a>
+            <a href="#"><button>Work</button></a>
+            <a href="#"><button>Marketplace</button></a>
+            <a href="#"><button>People</button></a>
+            <a href="#"><button>News</button></a>
+        </nav>
+        <a href="#"><img src="img/fakedatalogo.png" id="mainlogo"></a>
+        <button class="right-button">
+            <img src="img/partnericon.png" id="partnericon">
+            <a href="#">Partner Login</a>
+        </button>
+    </header>
+
+    <!-- main grid is 3 cols, 5 rows -->
+    <div id='main-grid'>
+        <!-- top left 1/2 cols, 1/3 rows -->
+        <div class="grid-pane img-background" id="what-we-do">
+            <p><strong>what we do</p></strong>
+        </div>
+
+        <!-- middle left 1/2 cols, 3/4 rows -->
+        <div class="grid-pane" id="brag-slide">
+            <h2 id="brag-header">dummy</h2>
+            <p id="brag-text">XXXXX ipsum dolor sit amet consectetur adipisicing elit. Odit et magnam quidem.</p>
+            <ul id="slideshow-buttons">
+                <li onclick="hardTrigger(0)"></li>
+                <li onclick="hardTrigger(1)"></li>
+                <li onclick="hardTrigger(2)"></li>
+                <li onclick="hardTrigger(3)"></li>
+            </ul>   
+            <div class="arrow-buttons">
+                <img src="img/arrow-left.png" class="arrow-left" onclick="leftArrow()">
+                <img src="img/arrow-right.png" class="arrow-right" onclick="rightArrow()">
+            </div>
+        </div>
+
+        <!-- bottom left 1/2 cols, 4/6 rows -->
+        <div class="grid-pane img-background" id="our-team">
+            <p><strong>our team</p></strong>
+        </div>
+
+        <!-- top middle 2/3 cols, 1/3 rows -->
+        <div class="grid-pane img-background" id="marketplace">
+            <img src="img/gears-text.png">
+        </div>
+
+        <!-- middle middle 2/3 cols, 3/5 rows -->
+        <div class="grid-pane" id="partner-slide">
+            <p><strong>our partners</p></strong>
+            <img class="slideshow-image" name="slides0">
+            <ul id="s2-slideshow-buttons">
+                <li onclick="s2_hardTrigger(0)"></li>
+                <li onclick="s2_hardTrigger(1)"></li>
+                <li onclick="s2_hardTrigger(2)"></li>
+                <li onclick="s2_hardTrigger(3)"></li>
+            </ul>   
+            <div class="arrow-buttons">
+                <img src="img/arrow-left.png" class="arrow-left" onclick="s2_leftArrow()">
+                <img src="img/arrow-right.png" class="arrow-right" onclick="s2_rightArrow()">
+            </div>
+        </div>
+
+        <!-- bottom middle 2/3 cols, 5/6 rows -->
+        <div class="grid-pane img-background" id="contacts">
+            <ul>
+                <a href="#"><li><img src="img/contact-email.png"></li></a>
+                <a href="#"><li><img src="img/contact-phone.png"></li></a>
+                <a href="#"><li><img src="img/contact-map.png"></li></a>
+                <a href="#"><li><img src="img/contact-linkedin.png"></li></a>
+            </ul>
+        </div>
+
+        <!-- top right 3/4 cols, 1/2 rows -->
+        <div class="grid-pane img-background" id="support">
+            <img src="img/headset.png">
+            <p><strong>get support</p></strong>
+        </div>
+
+        <!-- middle right 3/4 cols, 2/4 rows -->
+        <div class="grid-pane" id="join-team">
+            <p><strong>join the team</p></strong>
+            <div class="overlay">
+                <div class="overlay-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur dolorum quos non magni ratione nihil esse sapiente natus suscipit pariatur laborum nostrum dolores vero expedita sint, reiciendis enim provident facere fugit debitis aspernatur et. Illo quis alias voluptate molestiae aperiam.</div>
+            </div>
+            <img src="img/medal.png">
+        </div>
+
+        <!-- bottom right 3/4 cols, 4/6 rows -->
+        <div class="grid-pane img-background" id="integration">
+            <img src="img/fakelabslogo.png">
+            <p>Lab requisitions & results. Delivered.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <a href="#"><img src="img/fakedatafooter.png"></a>
+        <span id="right-footer">
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+            <p>&copy; 2018 Not Actually Copyrighted, Inc. No rights reserved.</p>
+        </span>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

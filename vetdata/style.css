@@ -1,0 +1,517 @@
+/* Global */
+
+*{
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+
+header{    
+    position: fixed;
+    height:50px;
+    width: 100%;
+    background-color:#fff;
+    align-content: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Header Buttons and Links */
+
+header button{
+    text-transform: uppercase;
+    padding: 13px 20px;
+    font-size: 14px;
+    padding: 0 20px 0 20px;
+    border: 0;
+    height: 50px;
+    background: #fff;
+    cursor: pointer;
+}
+
+header nav button{
+    float: left;
+    color:rgb(69, 69, 189);
+}
+
+header button.right-button{
+    float: right;
+}
+
+header button:hover{
+    background-color:#ddd;
+}
+
+header a{
+    text-decoration: none;
+}
+
+/* Header Images */
+
+header img#mainlogo{
+    position: absolute;
+    left: 50%;
+    transform:translate(-50%,0);
+    height: 50px;
+    vertical-align: top;
+}
+
+header img#partnericon{
+    padding-right:3px;
+}
+
+/* Media Queries for Header */
+@media(max-width:991px){
+    header button.right-button{
+        display: none;
+    }
+
+    header img#mainlogo{
+        position: relative;
+        left:0;
+        margin-right:20px;
+        transform: none;
+        float: right;
+        transform: 0;
+    }
+}
+
+@media(max-width:768px){
+    header nav{
+        display: none;
+    }
+
+    header img#mainlogo{
+        position: relative;
+        left:0;
+        padding-left:5px;
+        transform: none;
+        float: left;
+        transform: 0;
+    }
+}
+
+/* Main Grid */
+#main-grid{
+    position: relative;
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        'what-we-do marketplace support'
+        'what-we-do marketplace join-team'
+        'brag-slider partner-slider join-team'
+        'our-team partner-slider integration'
+        'our-team contacts integration';
+    grid-auto-rows: 175px;
+    justify-items: stretch;
+    align-items: stretch;
+    color: #fff;
+    animation-name: content;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes content{
+    0% {left: -2000px}
+    100% {left: 0}
+}
+
+.grid-pane{
+}
+
+.img-background{
+    transition-property: opacity;
+    transition-duration: .7s;
+    transition-timing-function: ease;
+}
+
+.img-background:hover{
+    color:#fff;
+    opacity:0.85;
+}
+
+/* What We Do */
+#what-we-do{
+    position: relative;
+    grid-area: what-we-do;
+    background:url('img/whatwedo.jpg') no-repeat center;
+    background-size: cover;    
+}
+
+#what-we-do p{
+    position: absolute;
+    font-size: 26px;
+    left: 25px;
+    bottom: 10px;
+}
+
+/* Brag Slider */
+#brag-slide{
+    grid-area: brag-slider;
+    background:rgb(56, 102, 255);
+    color:#fff;
+    position: relative;
+    width: 100%;
+}
+
+#brag-slide h2{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 35px;
+}
+
+#brag-slide p{
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+#brag-slide:hover .arrow-buttons{
+    opacity: 1;
+}
+
+#slideshow-buttons{
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 0);
+}
+
+#slideshow-buttons ul{
+    list-style: none;
+}
+
+#slideshow-buttons li{
+    display: inline-block;
+    margin-right: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border: 1px solid #00f;
+    cursor: pointer;
+}
+
+#brag-slide .arrow-buttons{
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#brag-slide .arrow-left{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#brag-slide .arrow-right{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+/* Our Team */
+#our-team{
+    position: relative;
+    grid-area:our-team;
+    background:url('img/dogsled.png') no-repeat center;
+    background-size: cover;    
+}
+
+#our-team p{
+    position: absolute;
+    font-size: 26px;
+    top: 10px;
+    right: 25px;
+}
+
+/* Marketplace */
+#marketplace{
+    position: relative;
+    grid-area: marketplace;
+    background:url('img/gears.png') no-repeat center;
+    background-size: cover;   
+}
+
+#marketplace img{
+    width: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Partner Slider */
+#partner-slide{
+    grid-area: partner-slider;
+    background:#ddd;
+    color:#fff;
+    position: relative;
+    width: 100%;
+}
+
+#partner-slide .slideshow-image{
+    position: relative;
+    max-width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#partner-slide h2{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 35px;
+}
+
+#partner-slide p{
+    position: absolute;
+    font-size: 26px;
+    color: rgb(56, 102, 255);;
+    top: 10px;
+    left: 25px;
+}
+
+#partner-slide:hover .arrow-buttons{
+    opacity: 1;
+}
+
+#s2-slideshow-buttons{
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 0);
+}
+
+#s2-slideshow-buttons ul{
+    list-style: none;
+}
+
+#s2-slideshow-buttons li{
+    display: inline-block;
+    margin-right: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border: 1px solid #00f;
+    cursor: pointer;
+}
+
+#partner-slide .arrow-buttons{
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#partner-slide .arrow-left{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#partner-slide .arrow-right{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+/* Contacts */
+#contacts{
+    position: relative;
+    grid-area: contacts;
+    background:#71179E;    
+}
+
+#contacts ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+}
+
+#contacts li{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+#contacts img{
+    height: 45px;
+}
+
+/* Support */
+#support{
+    position: relative;
+    grid-area: support;
+    background:#27726D;
+}
+
+#support img{
+    height: 75%;
+    position: relative;
+    top: 50%;
+    left: 20%;
+    padding-left: 30px;
+    transform: translate(-20%, -50%);
+}
+
+#support p{
+    position: absolute;
+    font-size: 26px;
+    top: 40%;
+    right: 35px;
+}
+
+/* Join Team */
+#join-team{
+    position: relative;
+    grid-area: join-team;
+    background:url('img/employees.png') no-repeat center;
+    background-size: cover;   
+}
+
+#join-team p{
+    position: absolute;
+    font-size: 26px;
+    bottom: 10px;
+    right: 25px;
+    z-index: 2;
+}
+
+#join-team:hover{
+    color:rgb(56, 102, 255);
+}
+
+#join-team .overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    opacity:0;
+    cursor: default;
+    transition: .3s ease;
+}
+
+#join-team .overlay:hover{
+    opacity:.8;
+}
+
+#join-team .overlay-text{
+    position: absolute;
+    padding-right: 25px;
+    top: 40px;
+    left: 25px;
+    color:#000;
+}
+
+#join-team img{
+    display: block;
+    margin-left: 50%;
+    margin-top: 100px;
+}
+
+/* Integration */
+#integration{
+    position: relative;
+    grid-area: integration;
+    background:#1A2356;
+    text-align: center;
+    padding: 5%;
+}
+
+#integration img{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    max-width: 95%;
+    
+}
+
+#integration p{
+    font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 95%;
+}
+
+/* Footer */
+footer{
+    background-color:#333;
+    color:#fff;
+    padding-top:10px;    
+}
+
+footer img{
+    padding-left: 10px;
+    height: 50px;
+}
+
+footer #right-footer{
+    float: right;
+    text-align: right;
+    padding-right: 15px;
+    padding-top:6px;
+    font-size: 12px;
+}
+
+footer li{
+    list-style: none;
+    display: inline;
+}
+
+footer li + li:before{
+    content: " | ";
+    color:#999;
+    padding: 0 3px;
+}
+
+footer a{
+    text-decoration: none;
+}
+
+footer a:visited{
+    color:#fff;
+}
+
+footer a:hover{
+    color: rgb(71, 209, 255);
+}
+
+footer p{
+    color:#999;
+}
+
+@media(max-width:991px){
+    #main-grid{
+        grid-template-areas: 
+            'what-we-do' 
+            'what-we-do' 
+            'brag-slider' 
+            'our-team' 
+            'our-team' 
+            'marketplace' 
+            'marketplace' 
+            'partner-slider' 
+            'partner-slider' 
+            'contacts' 
+            'support' 
+            'join-team' 
+            'join-team' 
+            'integration'
+            'integration';
+        grid-template-columns: 100%;
+    }
+}

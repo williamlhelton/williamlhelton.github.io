@@ -7,15 +7,18 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-size:15px;
-    line-height:1.5;
+    line-height:1.5;    
     opacity:0.85;
     background: url("../img/bulb.jpg") no-repeat center center fixed;
     background-size:cover;
 }
 
 #wrapper-tint{
+    position: relative;
+    min-height: 100vh;
     background-color: black;
     opacity:0.95;
+    padding-bottom: 30px;
 }
 
 .container{
@@ -30,11 +33,15 @@ header{
     background-color:white;
     color:darkblue;
     text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size:1.3em;
 }
 
 /* NavBar */
 #navbar{
     font-family:Courier New, Courier, monospace;
+    font-size: 1em;
     background-color:darkblue;
     color:white;
     padding-top:10px;
@@ -69,6 +76,7 @@ header{
 
 .blurb{
     margin:20px;
+    max-width: 450px;
 }
 
 .blurb h2{
@@ -77,6 +85,7 @@ header{
     background:darkblue;
     color:white;
     text-align:center;
+    font-size: 2em;
 }
 
 .blurb p{
@@ -85,11 +94,18 @@ header{
     padding:18px;
     color:black;
     padding-top:20px;
-    font-size: 20px;
+    font-size: 1.3em;
+}
+
+.blurb:nth-child(odd){
+    justify-self: right;
 }
 
 /* Footer */
 footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
     font-family:Courier New, Courier, monospace;
     background-color:darkblue;
     color:white;
@@ -104,5 +120,13 @@ footer{
 
     #blurb-container{
         grid-template-columns: 1fr;
+    }
+
+    .blurb{
+        max-width: none;
+    }
+
+    .blurb:nth-child(odd){     
+        justify-self: auto;
     }
 }
