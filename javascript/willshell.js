@@ -138,6 +138,7 @@ function checkUserInput(userInputString){
     // turkey
     else if(userCommand == 'turkey'){
         document.body.style.background = "url('../img/turkey.jpg') no-repeat center center fixed";
+        output.innerHTML += 'turkey<br>';
     }
 
     //
