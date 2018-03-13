@@ -113,7 +113,7 @@ async function checkUserInput(userInputString){
         nuke - nukes the page<br>
         color [valid CSS color] - color the website!<br>
         cynical - adds hidden content to blog posts<br>
-        home, blog - takes you to the local web page<br>
+        home, blog, projects, about - takes you to the local web page<br>
         visit [valid URL] - takes you away to a better web page<br>
         turkey - turkey
         `);
@@ -129,6 +129,16 @@ async function checkUserInput(userInputString){
         shellAppend('going to blog . . .');
         await sleep(2000);
         window.location.href = '/blog.html';
+    }
+    else if(userCommand == 'projects'){
+        shellAppend('going to projects . . .');
+        await sleep(2000);
+        window.location.href = '/projects.html';
+    }
+    else if(userCommand == 'about'){
+        shellAppend('going to about . . .');
+        await sleep(2000);
+        window.location.href = '/about.html';
     }
 
     // visit takes you to another page
