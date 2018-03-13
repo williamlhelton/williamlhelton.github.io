@@ -44,7 +44,7 @@ input.addEventListener("keypress", function(e) {
 });
 
 // process user input command
-function checkUserInput(userInputString){
+async function checkUserInput(userInputString){
     // if empty just return
     if(userInputString == ''){
         output.innerHTML += '>><br>';
@@ -75,15 +75,20 @@ function checkUserInput(userInputString){
     // GET READY
     //
 
+    if(userCommand == "clr"){
+        output.innerHTML = '';
+    }
+
     // nuke the page
     // this blows everything up including the will shell
-    if(userCommand == "nuke"){
+    else if(userCommand == "nuke"){
+        document.body.style.background = "none";
         document.querySelector('body').innerHTML = "";
         var nukeDiv = document.createElement('div');
         document.body.appendChild(nukeDiv);
         nukeDiv.style.textAlign = 'center';
         nukeDiv.style.fontSize = '6em';
-        nukeDiv.style.color = 'white';
+        nukeDiv.style.color = 'black';
         nukeDiv.innerHTML = 'page nuked';
     }
 
@@ -104,34 +109,41 @@ function checkUserInput(userInputString){
     // help lists all commands
     else if(userCommand == 'help'){
         output.innerHTML += `WillShell commands:<br>
+        clr - clears this page<br>
         nuke - nukes the page<br>
         color [valid CSS color] - color the website!<br>
         cynical - adds hidden content to blog posts<br>
         home, blog - takes you to the local web page<br>
         visit [valid URL] - takes you away to a better web page<br>
-        turkey - turkey
+        turkey - turkey<br>
         `;
     }
 
     // page names take you to the page
     else if(userCommand == 'home'){
+        output.innerHTML += 'going home . . .<br>';
+        await sleep(2000);
         window.location.href = '/index.html';
     }
     else if(userCommand == 'blog'){
+        output.innerHTML += 'going to blog . . .<br>';
+        await sleep(2000);
         window.location.href = '/blog.html';
     }
 
     // visit takes you to another page
     else if(userCommand == 'visit'){
+        output.innerHTML += 'Goodbye!  Going to ' + userParams + ' . . .<br>';
+        await sleep(2000);
         window.location.href = userParams;
     }
 
     // cynical makes the hidden blog content appear
     else if(userCommand == 'cynical'){
         if(document.URL.indexOf("blog.html") > -1){
-            toggleCynicalBlog();
+            toggleCynicalBlog();            
         } else{
-            output.innerHTML += '"cynical" is only used on blog!';
+            output.innerHTML += '"cynical" is only used on blog!<br>';
         }
     }
 
@@ -180,12 +192,11 @@ function changeColor(colorName){
 
 // toggle cynical blog posts and sentences
 function toggleCynicalBlog(){
-    output.innerHTML += 'got to toggleCynicalBlog<br>';
     // toggle cynical blog posts
     var blogTitles = document.querySelectorAll('.blog-title.cynical');
-    console.log(blogTitles[0].style.display);
+    var onOrOff = false;
+
     for(var i = 0; i < blogTitles.length; i++){
-        output.innerHTML += 'got to title for loop<br>';
         console.log(blogTitles[i].style.display);
         if (blogTitles[i].style.display == "block") {
             blogTitles[i].style.display = "none";
@@ -193,6 +204,7 @@ function toggleCynicalBlog(){
             blogTitles[i].style.display = "block";
             input.focus();
             input.selectionStart = input.selectionEnd = input.value.length;
+            onOrOff = true;
         }
     }
 
@@ -200,14 +212,11 @@ function toggleCynicalBlog(){
     var blogSentences = document.querySelectorAll('span.cynical');
     console.log(blogSentences.length);
     for(var i = 0; i < blogSentences.length; i++){
-        output.innerHTML += 'got to sentence for loop<br>';
         console.log(blogSentences[i].style.display);
         if (blogSentences[i].style.display == "inline") {
-            output.innerHTML += 'got to sentence if<br>';
             blogSentences[i].style.display = "none";
         } else {
             blogSentences[i].style.display = "inline";
-            output.innerHTML += 'got to sentence else<br>';
             input.focus();
             input.selectionStart = input.selectionEnd = input.value.length;
         }
@@ -217,10 +226,21 @@ function toggleCynicalBlog(){
     var blogContent = document.querySelectorAll('.blog-content.cynical');
     console.log(blogContent.length);
     for(var i = 0; i < blogContent.length; i++){
-        output.innerHTML += 'got to sentence for loop<br>';
         console.log(blogContent[i].style.display);
         if (blogContent[i].style.display == "inline") {
             blogContent[i].style.display = "none";
         }
     }
+
+    // print to will shell
+    if(onOrOff){
+        output.innerHTML += 'cynical blog activated!<br>';
+    } else {
+        output.innerHTML += 'cynical blog deactivated!<br>';
+    }
+}
+
+// sleep, takes milliseconds
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
