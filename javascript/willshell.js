@@ -47,7 +47,7 @@ input.addEventListener("keypress", function(e) {
 async function checkUserInput(userInputString){
     // if empty just return
     if(userInputString == ''){
-        output.innerHTML += '>><br>';
+        shellAppend('>> ');
         return;
     }
 
@@ -64,9 +64,9 @@ async function checkUserInput(userInputString){
         userParams += userInputString.substring(spaceFound+1);
     }
 
-    output.innerHTML += '>> ' + userCommand + '<br>';
+    shellAppend('>> ' + userCommand);
     if(userParams){
-        output.innerHTML += '>> (params) ' + userParams + '<br>';
+        shellAppend('>> (params) ' + userParams);
     }
 
     //
@@ -100,40 +100,40 @@ async function checkUserInput(userInputString){
         var valid = isColor(userParams);
         if(valid){
             changeColor(userParams);
-            output.innerHTML += 'Changed color trim to ' + userParams + '!<br>';
+            shellAppend('Changed color trim to ' + userParams + '!');
         } else {
-            output.innerHTML += userParams + ' is not a valid color!<br>';
+            shellAppend(userParams + ' is not a valid color!');
         }
     }
 
     // help lists all commands
     else if(userCommand == 'help'){
-        output.innerHTML += `WillShell commands:<br>
+        shellAppend(`WillShell commands:<br>
         clr - clears this page<br>
         nuke - nukes the page<br>
         color [valid CSS color] - color the website!<br>
         cynical - adds hidden content to blog posts<br>
         home, blog - takes you to the local web page<br>
         visit [valid URL] - takes you away to a better web page<br>
-        turkey - turkey<br>
-        `;
+        turkey - turkey
+        `);
     }
 
     // page names take you to the page
     else if(userCommand == 'home'){
-        output.innerHTML += 'going home . . .<br>';
+        shellAppend('going home . . .');
         await sleep(2000);
         window.location.href = '/index.html';
     }
     else if(userCommand == 'blog'){
-        output.innerHTML += 'going to blog . . .<br>';
+        shellAppend('going to blog . . .');
         await sleep(2000);
         window.location.href = '/blog.html';
     }
 
     // visit takes you to another page
     else if(userCommand == 'visit'){
-        output.innerHTML += 'Goodbye!  Going to ' + userParams + ' . . .<br>';
+        shellAppend('Goodbye!  Going to ' + userParams + ' . . .');
         await sleep(2000);
         window.location.href = userParams;
     }
@@ -143,14 +143,14 @@ async function checkUserInput(userInputString){
         if(document.URL.indexOf("blog.html") > -1){
             toggleCynicalBlog();            
         } else{
-            output.innerHTML += '"cynical" is only used on blog!<br>';
+            shellAppend('"cynical" is only used on blog!');
         }
     }
 
     // turkey
     else if(userCommand == 'turkey'){
         document.body.style.background = "url('../img/turkey.jpg') no-repeat center center fixed";
-        output.innerHTML += 'turkey<br>';
+        shellAppend('turkey');
     }
 
     //
@@ -160,7 +160,7 @@ async function checkUserInput(userInputString){
     //
 
     else{
-        output.innerHTML += 'Bad command!<br>';
+        shellAppend('Bad command!');
     }
 
     //scroll output box to bottom
@@ -227,20 +227,25 @@ function toggleCynicalBlog(){
     console.log(blogContent.length);
     for(var i = 0; i < blogContent.length; i++){
         console.log(blogContent[i].style.display);
-        if (blogContent[i].style.display == "inline") {
+        if (blogContent[i].style.display == "block") {
             blogContent[i].style.display = "none";
-        }
+        }        
     }
 
     // print to will shell
     if(onOrOff){
-        output.innerHTML += 'cynical blog activated!<br>';
+        shellAppend('cynical blog activated!');
     } else {
-        output.innerHTML += 'cynical blog deactivated!<br>';
+        shellAppend('cynical blog deactivated!');
     }
 }
 
 // sleep, takes milliseconds
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// append to will shell
+function shellAppend(message){
+    output.innerHTML += message + '<br>';
 }

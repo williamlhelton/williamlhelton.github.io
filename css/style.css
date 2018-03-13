@@ -170,6 +170,7 @@ span.cynical{
 .blog-content.cynical{
     background-color:rgb(68, 1, 1);
     color:white;
+    display: none;
 }
 
 
